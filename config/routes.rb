@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :cars, :ships, :aircrafts
+  root 'application#home'
+  get 'new', to: 'application#form'
+  post 'create_object', to: 'application#create_object'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,19 @@
+<h1>Creating new object (all fields are required)</h1>
+
+<%= form_tag(controller: 'application', action: 'create_object', method: 'post') do %>
+    <table>
+      <tr>
+        <td><strong><%= label_tag(:label_object, 'Object*: ') %></strong></td>
+        <td><%= select_tag 'object', options_for_select([ 'Car', 'Ship', 'Aircraft' ], 'Car') %></td>
+      </tr>
+      <tr>
+        <td><strong><%= label_tag(:label_name, 'Name*: ') %></strong></td>
+        <td><%= text_field_tag(:name) %></td>
+      </tr>
+      <tr>
+        <td><strong><%= label_tag(:label_color, 'Color*: ') %></strong></td>
+        <td><%= text_field_tag(:color) %></td>
+      </tr>
+    </table>
+    <%= submit_tag('Submit') %>
+<% end %>

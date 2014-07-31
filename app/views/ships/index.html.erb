@@ -1,0 +1,18 @@
+<h1>Ships</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+  </tr>
+
+  <% @ships.each do |ship| %>
+      <tr>
+        <td><%= ship.name %></td>
+        <td><%= ship.color %></td>
+        <td><%= link_to 'Show', ship_path(ship) %></td>
+        <td><%= link_to 'Edit', edit_ship_path(ship) %></td>
+        <td><%= link_to 'Destroy', ship_path(ship), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
