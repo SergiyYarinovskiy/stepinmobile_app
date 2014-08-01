@@ -5,7 +5,7 @@ class ShipsController < ApplicationController
   end
 
   def edit
-    @ships = Ship.find(params[:id])
+    @ship = Ship.find(params[:id])
   end
 
   def update

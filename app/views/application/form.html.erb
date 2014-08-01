@@ -1,9 +1,23 @@
+<div id="table_check">
+  <table>
+    <tr>
+      <td><%= image_tag 'check.jpg' %></td><td><h3>Object was created</h3></td>
+    </tr>
+  </table>
+</div>
+<div id="table_cross">
+  <table>
+    <tr>
+      <td><%= image_tag 'cross.jpg' %></td><td id="errors"></td>
+    </tr>
+  </table>
+</div>
 <h1>Creating new object (all fields are required)</h1>
 
-<%= form_tag(controller: 'application', action: 'create_object', method: 'post') do %>
+<%= form_tag(create_object_path, id: 'form') do %>
     <table>
       <tr>
-        <td><strong><%= label_tag(:label_object, 'Object*: ') %></strong></td>
+        <td><strong><%= label_tag(:label_object, 'Object type*: ') %></strong></td>
         <td><%= select_tag 'object', options_for_select([ 'Car', 'Ship', 'Aircraft' ], 'Car') %></td>
       </tr>
       <tr>
@@ -15,5 +29,5 @@
         <td><%= text_field_tag(:color) %></td>
       </tr>
     </table>
-    <%= submit_tag('Submit') %>
+    <%= submit_tag('Submit', id: 'submit_btn') %>
 <% end %>

@@ -5,7 +5,7 @@ class AircraftsController < ApplicationController
   end
 
   def edit
-    @aircrafts = Aircraft.find(params[:id])
+    @aircraft = Aircraft.find(params[:id])
   end
 
   def update
