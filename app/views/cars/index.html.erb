@@ -1,18 +1,26 @@
 <h1>Cars</h1>
-
-<table>
+<table class="table table-striped">
+  <thead>
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Color</th>
+    <th>Created at</th>
+    <th>Actions</th>
   </tr>
-
+  </thead>
+  <tbody>
   <% @cars.each do |car| %>
       <tr>
-        <td><%= car.name %></td>
+        <td><%= car.id %></td>
+        <td><%= link_to car.name, car_path(car) %></td>
         <td><%= car.color %></td>
-        <td><%= link_to 'Show', car_path(car) %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car_path(car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= car.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_car_path(car), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
   <% end %>
+  </tbody>
 </table>

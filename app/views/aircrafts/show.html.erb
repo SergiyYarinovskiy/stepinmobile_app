@@ -1,11 +1,17 @@
-<table>
-  <tr>
-    <td><strong>Name: </strong></td>
-    <td><%= @aircraft.name %></td>
-  </tr>
-  <tr>
-    <td><strong>Color: </strong></td>
-    <td><%= @aircraft.color %></td>
-  </tr>
-</table>
-<%= link_to 'Aircrafts', aircrafts_path %>
+<h1>Aircraft with id <%= @aircraft.id %></h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @aircraft.name %>
+</p>
+
+<p>
+  <b>Color</b><br>
+  <%= @aircraft.color %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', aircrafts_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_aircraft_path(@aircraft), :class => 'btn' %>
+  <%= link_to 'Delete', aircraft_path(@aircraft), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+</div>

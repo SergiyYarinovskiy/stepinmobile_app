@@ -1,18 +1,26 @@
 <h1>Ships</h1>
-
-<table>
+<table class="table table-striped">
+  <thead>
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Color</th>
+    <th>Created at</th>
+    <th>Actions</th>
   </tr>
-
+  </thead>
+  <tbody>
   <% @ships.each do |ship| %>
       <tr>
-        <td><%= ship.name %></td>
+        <td><%= ship.id %></td>
+        <td><%= link_to ship.name, ship_path(ship) %></td>
         <td><%= ship.color %></td>
-        <td><%= link_to 'Show', ship_path(ship) %></td>
-        <td><%= link_to 'Edit', edit_ship_path(ship) %></td>
-        <td><%= link_to 'Destroy', ship_path(ship), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= ship.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_ship_path(ship), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', ship_path(ship), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
   <% end %>
+  </tbody>
 </table>

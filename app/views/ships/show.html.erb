@@ -1,11 +1,17 @@
-<table>
-  <tr>
-    <td><strong>Name: </strong></td>
-    <td><%= @ship.name %></td>
-  </tr>
-  <tr>
-    <td><strong>Color: </strong></td>
-    <td><%= @ship.color %></td>
-  </tr>
-</table>
-<%= link_to 'Ships', ships_path %>
+<h1>Ship with id <%= @ship.id %></h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @ship.name %>
+</p>
+
+<p>
+  <b>Color</b><br>
+  <%= @ship.color %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', ships_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_ship_path(@ship), :class => 'btn' %>
+  <%= link_to 'Delete', ship_path(@ship), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+</div>

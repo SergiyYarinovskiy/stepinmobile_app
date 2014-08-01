@@ -1,18 +1,26 @@
 <h1>Aircrafts</h1>
-
-<table>
+<table class="table table-striped">
+  <thead>
   <tr>
+    <th>ID</th>
     <th>Name</th>
     <th>Color</th>
+    <th>Created at</th>
+    <th>Actions</th>
   </tr>
-
+  </thead>
+  <tbody>
   <% @aircrafts.each do |aircraft| %>
       <tr>
-        <td><%= aircraft.name %></td>
+        <td><%= aircraft.id %></td>
+        <td><%= link_to aircraft.name, aircraft_path(aircraft) %></td>
         <td><%= aircraft.color %></td>
-        <td><%= link_to 'Show', aircraft_path(aircraft) %></td>
-        <td><%= link_to 'Edit', edit_aircraft_path(aircraft) %></td>
-        <td><%= link_to 'Destroy', aircraft_path(aircraft), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= aircraft.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_aircraft_path(aircraft), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', aircraft_path(aircraft), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
   <% end %>
+  </tbody>
 </table>
